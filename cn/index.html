@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FM 98.7 · 夜航船</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">FM 98.7 · 夜航船 · 只读介质</div>
+    </div>
+    <div class="window-body">
+      <p class="cold">你把收音机插上电。调频旋钮自动转到 98.7。</p>
+      <img src="images/radio.jpg" style="width:100%;border-radius:6px;margin:8px 0 16px;filter:saturate(0.75);" alt="旧收音机">
+      <p>电流声里，一个女声传出来——<span class="hl">“这里是夜航船，欢迎收听。”</span></p>
+      <p class="cold">信号很弱。你能听到的，是 1998 年留下来的几个片断。</p>
+      <p class="warn">⚠️ 频道记录损坏，部分文件无法读取。</p>
+      <div class="file-list" style="margin-top:20px;">
+        <div class="file-item" onclick="location.href='home.html'">
+          <div class="icon">📻</div><div class="name">home.html —— 电台简介</div><div class="size">3.8 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='about.html'">
+          <div class="icon">📄</div><div class="name">about.html —— 关于陆沉</div><div class="size">2.4 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='schedule.html'">
+          <div class="icon">📋</div><div class="name">schedule.html —— 节目表</div><div class="size">1.6 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='host.html'">
+          <div class="icon">🎙️</div><div class="name">host.html —— 苏晚</div><div class="size">2.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='letters.html'">
+          <div class="icon">✉️</div><div class="name">letters.html —— 听众来信</div><div class="size">4.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='broadcast-01.html'">
+          <div class="icon">🎵</div><div class="name">broadcast-01.mp3 —— 第 1 期</div><div class="size">12.3 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='broadcast-02.html'">
+          <div class="icon">🎵</div><div class="name">broadcast-02.mp3 —— 第 47 期</div><div class="size">14.7 KB</div>
+        </div>
+        <div class="file-item locked" id="file-b3">
+          <div class="icon">🔒</div><div class="name">broadcast-03.mp3 —— 最后一期</div><div class="size">需密码</div>
+        </div>
+        <div class="file-item" onclick="location.href='news.html'">
+          <div class="icon">📰</div><div class="name">news.html —— 新闻存档</div><div class="size">1.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='missing.html'">
+          <div class="icon">🔍</div><div class="name">missing.html —— 失踪档案</div><div class="size">2.2 KB</div>
+        </div>
+        <div class="file-item" id="file-terminal" onclick="goTerminal()">
+          <div class="icon">🔒</div><div class="name">terminal.html —— ???</div><div class="size">未知</div>
+        </div>
+        <div class="file-item" id="file-decode" onclick="goDecode()">
+          <div class="icon">🔧</div><div class="name">decode.html —— 解码工具</div><div class="size">可打开</div>
+        </div>
+        <div class="file-item locked" id="file-final">
+          <div class="icon">🔒</div><div class="name">final.html —— 最后的声音</div><div class="size">未知</div>
+        </div>
+      </div>
+      <div class="timetower">
+        <strong>📡 频道信息</strong><br>
+        频率：FM 98.7 · 呼号：夜航船 · 类型：午夜谈话<br>
+        播出时间：1996-1998 · 每周四 00:00 - 02:00<br>
+        最后播出：1998 年 3 月 17 日 02:47
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="搜索文件…（试试「来信」「录音」「终端」）" autocomplete="off">
+        <button>搜索</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;">
+    <button class="btn" onclick="if(confirm('确定要重置所有进度吗？')){resetState();location.reload();}">重置进度</button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function goTerminal() {
+  const s = getState();
+  if (s.terminalUnlocked) location.href = 'terminal.html';
+  else alert('该文件受保护。需要先找到终端密码。');
+}
+function goDecode() {
+  location.href = 'decode.html';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  if (s.b3Unlocked) {
+    const f = document.getElementById('file-b3');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'broadcast-03.html';
+    f.querySelector('.icon').textContent = '🎵';
+    f.querySelector('.size').textContent = '已解锁';
+  } else {
+    document.getElementById('file-b3').onclick = () => {
+      const pwd = prompt('输入 4 位密码：');
+      if (pwd === '0214') {
+        setState({ b3Unlocked: true });
+        saveNote('🔓 解锁最后一期录音，密码 0214（首播日）');
+        location.href = 'broadcast-03.html';
+      } else if (pwd) {
+        alert('密码错误。');
+      }
+    };
+  }
+  if (s.terminalUnlocked) {
+    const f = document.getElementById('file-terminal');
+    f.querySelector('.icon').textContent = '⚡';
+    f.querySelector('.size').textContent = '已解锁';
+  }
+  if (s.finalUnlocked) {
+    const f = document.getElementById('file-final');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'final.html';
+    f.querySelector('.icon').textContent = '🎙️';
+    f.querySelector('.size').textContent = '已解锁';
+  } else {
+    document.getElementById('file-final').onclick = () => {
+      alert('该文件受保护。需要先在终端里解锁。');
+    };
+  }
+});
+</script>
+</body>
+</html>

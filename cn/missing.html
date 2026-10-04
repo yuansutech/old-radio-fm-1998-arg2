@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>失踪档案</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">missing.html —— 青川市公安局</div>
+    </div>
+    <div class="window-body">
+      <p><strong>姓名：</strong>苏晚</p>
+      <p><strong>性别：</strong>女</p>
+      <p><strong>出生：</strong>1972 年</p>
+      <p><strong>失踪日期：</strong><span class="hl">1998 年 3 月 17 日</span></p>
+      <p><strong>失踪地点：</strong>青川市广播电台 · 直播间</p>
+      <p><strong>状态：</strong><span class="warn">未找到</span></p>
+      <hr style="border:none;border-top:1px dashed #2e2e33;margin:16px 0;">
+      <p class="dim">1998 年 3 月 17 日晚，苏晚进入直播间后未再出现。次日同事报警。</p>
+      <p class="dim">警方在现场发现：录音磁带一盘、听众来信三封、收音机一台。</p>
+      <p class="dim">磁带最后录到凌晨 2:47，之后只有电流声。</p>
+      <p class="dim">其宿舍内的日记本被撕去部分页码。</p>
+      <p class="warn" style="margin-top:12px;">案件至今未破。</p>
+      <div class="timetower">
+        <strong>🔑 档案编号</strong><br>
+        QC1998-0317<br>
+        这个编号同时是：失踪日期 + 她最后一期录制的时间<br>
+        <span class="hl">3 月 17 日 → 0317</span>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="搜索…" autocomplete="off">
+        <button>搜索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('🔑 失踪档案编号 QC1998-0317，密码 0317');
+});
+</script>
+</body>
+</html>
