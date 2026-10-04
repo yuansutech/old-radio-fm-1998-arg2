@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ニュース</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">news.html —— 青川日報 · 1998年3月</div>
+    </div>
+    <div class="window-body">
+      <p><strong>1998-03-12 · 青川放送局、深夜番組を改編</strong></p>
+      <p class="dim">市放送局によると、夜航船は4月からリニューアルされる。具体的な放送時間は後日発表される。</p>
+      <p style="margin-top:20px;"><strong>1998-03-19 · 夜航船の放送終了について</strong></p>
+      <p class="dim">パーソナリティの個人の事情により、夜航船は今週から放送を終了します。2年間のご支援に感謝いたします。</p>
+      <p style="margin-top:20px;"><strong>1998-03-25 · パーソナリティ蘇晩について</strong></p>
+      <p class="dim">蘇晩は個人の事情により退職し、今後当放送局のいかなる番組も担当しません。</p>
+      <div class="timetower">
+        <strong>📌 重要</strong><br>
+        最終回は1998年3月17日の放送予定だったが、土壇場で取り消された。<br>
+        陸沈はこの回のサウンドエンジニアだった。テープは彼の手元にある。
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="検索…" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('📰 最終回が土壇場で取り消され、蘇晩は退職後に失踪した');
+});
+</script>
+</body>
+</html>

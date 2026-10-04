@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【Yuansu Tech ARG】古いラジオ FM-1998 · 完全攻略</title>
+<style>
+  body { background: #fff; font-family: "SF Mono", Consolas, monospace; color: #000;
+    max-width: 760px; margin: 0 auto; padding: 60px 20px; font-size: 15px; line-height: 1.8; }
+  .header { margin-bottom: 20px; font-weight: bold; }
+  .notice { color: #666; margin-bottom: 40px; }
+  .notice span { display: inline-block; width: 90px; }
+  h2 { font-size: 16px; margin-top: 50px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+  .step { margin-bottom: 28px; padding-left: 20px; border-left: 2px solid #eee; }
+  .step-num { display: inline-block; background: #000; color: #fff; font-size: 12px;
+    padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+  .step-title { font-weight: bold; margin-bottom: 6px; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #c00; }
+  .ok { color: #005cc5; font-weight: bold; }
+  .warn { color: #c00; font-weight: bold; }
+  .box { background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+  .footer { color: #999; font-size: 13px; border-top: 1px solid #eee; padding-top: 20px; margin-top: 60px; }
+</style>
+</head>
+<body>
+<div class="header">
+  Yuansu Tech【YUANSUTECH】<br>
+  古いラジオ FM-1998<br>
+  完全攻略
+</div>
+<div class="notice">
+  <span>[制作]</span> 【オリジナル】YuansuTech<br>
+  <span>[禁止]</span> 盗用、再配布 🚫<br>
+  <span>[推奨]</span> Chrome / Edge
+</div>
+<h2>第1段階：夜航船を知る</h2>
+<div class="step">
+  <div class="step-num">1-1</div>
+  <div class="step-title">index.html → home.html</div>
+  <p>放送局の名前が「夜航船」で、パーソナリティの蘇晩が1998年3月17日に失踪したことを読む。サウンドエンジニアの陸沈がすべてを保存した。</p>
+</div>
+<div class="step">
+  <div class="step-num">1-2</div>
+  <div class="step-title">about.html</div>
+  <p>陸沈が言う：<span class="ok">数字の断片3つ——リスナーの手紙、パーソナリティのプロフィール、失踪者ファイル。</span></p>
+</div>
+<h2>第2段階：3つの断片を集める</h2>
+<div class="step">
+  <div class="step-num">2-1</div>
+  <div class="step-title">letters.html → 0214</div>
+  <p>初回放送日1998年2月14日 → <code>0214</code>。broadcast-03.htmlを開くのに使う。</p>
+</div>
+<div class="step">
+  <div class="step-num">2-2</div>
+  <div class="step-title">host.html → 9870</div>
+  <p>蘇晩のインタビューで周波数<code>98.7</code>が繰り返し出てくる。<b>「98.7」を逆から読む</b>と<code>9870</code>になる。terminal.htmlを開くのに使う。</p>
+  <p class="warn">注意：このゲームで最もトリッキーなポイント——パスワードは周波数そのものではなく、周波数の数字を逆から読んだものだ。</p>
+</div>
+<div class="step">
+  <div class="step-num">2-3</div>
+  <div class="step-title">missing.html → 0317</div>
+  <p>失踪日1998年3月17日 → <code>0317</code>。decode.htmlの検証に使う。</p>
+</div>
+<h2>第3段階：解除</h2>
+<div class="step">
+  <div class="step-num">3-1</div>
+  <div class="step-title">index.html → broadcast-03.mp3</div>
+  <p><code>0214</code>を入力。放送されなかった蘇晩の最終回を読む。</p>
+</div>
+<div class="step">
+  <div class="step-num">3-2</div>
+  <div class="step-title">index.html → terminal.html</div>
+  <p><code>9870</code>を入力。ターミナルに入る。</p>
+</div>
+<div class="step">
+  <div class="step-num">3-3</div>
+  <div class="step-title">ターミナルで<code>unlock 9870</code>と入力</div>
+  <p>✅ 出力：<span class="ok">パスワード正解。final.txtを復号しました。</span>エンディング解除。</p>
+</div>
+<h2>第4段階：エンディング</h2>
+<div class="step">
+  <div class="step-num">4-1</div>
+  <div class="step-title">index.html → final.html</div>
+  <p>蘇晩の最後の声を読む。クリア。</p>
+</div>
+<div class="box">
+  <b>🔑 パスワードまとめ</b><br>
+  <code>0214</code> —— broadcast-03.html解除（初回放送日）<br>
+  <code>9870</code> —— terminal.html解除（周波数98.7を逆から読む）<br>
+  <code>0317</code> —— decode.html検証（失踪日）
+</div>
+<div class="footer">
+  Copyright © YuansuTech. All rights reserved.<br>
+  蘇晩が物語の中で言い終えなかった言葉を、あなたが代わりに聞いた。
+</div>
+</body>
+</html>

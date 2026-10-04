@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【Yuansu Tech ARG】낡은 라디오 FM-1998 · 완전 공략</title>
+<style>
+  body { background: #fff; font-family: "SF Mono", Consolas, monospace; color: #000;
+    max-width: 760px; margin: 0 auto; padding: 60px 20px; font-size: 15px; line-height: 1.8; }
+  .header { margin-bottom: 20px; font-weight: bold; }
+  .notice { color: #666; margin-bottom: 40px; }
+  .notice span { display: inline-block; width: 90px; }
+  h2 { font-size: 16px; margin-top: 50px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+  .step { margin-bottom: 28px; padding-left: 20px; border-left: 2px solid #eee; }
+  .step-num { display: inline-block; background: #000; color: #fff; font-size: 12px;
+    padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+  .step-title { font-weight: bold; margin-bottom: 6px; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #c00; }
+  .ok { color: #005cc5; font-weight: bold; }
+  .warn { color: #c00; font-weight: bold; }
+  .box { background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+  .footer { color: #999; font-size: 13px; border-top: 1px solid #eee; padding-top: 20px; margin-top: 60px; }
+</style>
+</head>
+<body>
+<div class="header">
+  Yuansu Tech【YUANSUTECH】<br>
+  낡은 라디오 FM-1998<br>
+  완전 공략
+</div>
+<div class="notice">
+  <span>[제작]</span> 【오리지널】YuansuTech<br>
+  <span>[금지]</span> 표절, 재배포 🚫<br>
+  <span>[권장]</span> Chrome / Edge
+</div>
+<h2>1단계: 야항선 알기</h2>
+<div class="step">
+  <div class="step-num">1-1</div>
+  <div class="step-title">index.html → home.html</div>
+  <p>방송국 이름이 “야항선”이고, 진행자 수완이 1998년 3월 17일 실종되었다는 것을 읽는다. 사운드 엔지니어 육침이 모든 것을 보관했다.</p>
+</div>
+<div class="step">
+  <div class="step-num">1-2</div>
+  <div class="step-title">about.html</div>
+  <p>육침이 말한다: <span class="ok">숫자 조각 3개 — 청취자 편지, 진행자 프로필, 실종자 파일.</span></p>
+</div>
+<h2>2단계: 세 조각 모으기</h2>
+<div class="step">
+  <div class="step-num">2-1</div>
+  <div class="step-title">letters.html → 0214</div>
+  <p>첫 방송일 1998년 2월 14일 → <code>0214</code>. broadcast-03.html을 여는 데 쓴다.</p>
+</div>
+<div class="step">
+  <div class="step-num">2-2</div>
+  <div class="step-title">host.html → 9870</div>
+  <p>수완의 인터뷰에서 주파수 <code>98.7</code>이 계속 나온다. <b>“98.7”을 거꾸로 읽으면</b> <code>9870</code>이다. terminal.html을 여는 데 쓴다.</p>
+  <p class="warn">주의: 이 게임에서 가장 함정이 많은 부분 — 비밀번호는 주파수 자체가 아니라 주파수 숫자를 거꾸로 읽은 것이다.</p>
+</div>
+<div class="step">
+  <div class="step-num">2-3</div>
+  <div class="step-title">missing.html → 0317</div>
+  <p>실종일 1998년 3월 17일 → <code>0317</code>. decode.html 검증에 쓴다.</p>
+</div>
+<h2>3단계: 해제</h2>
+<div class="step">
+  <div class="step-num">3-1</div>
+  <div class="step-title">index.html → broadcast-03.mp3</div>
+  <p><code>0214</code> 입력. 방송되지 않은 수완의 마지막 회를 읽는다.</p>
+</div>
+<div class="step">
+  <div class="step-num">3-2</div>
+  <div class="step-title">index.html → terminal.html</div>
+  <p><code>9870</code> 입력. 터미널에 들어간다.</p>
+</div>
+<div class="step">
+  <div class="step-num">3-3</div>
+  <div class="step-title">터미널에 <code>unlock 9870</code> 입력</div>
+  <p>✅ 출력: <span class="ok">비밀번호 정확. final.txt가 복호화되었습니다.</span> 엔딩 해제.</p>
+</div>
+<h2>4단계: 엔딩</h2>
+<div class="step">
+  <div class="step-num">4-1</div>
+  <div class="step-title">index.html → final.html</div>
+  <p>수완의 마지막 목소리를 읽는다. 클리어.</p>
+</div>
+<div class="box">
+  <b>🔑 비밀번호 정리</b><br>
+  <code>0214</code> —— broadcast-03.html 해제 (첫 방송일)<br>
+  <code>9870</code> —— terminal.html 해제 (주파수 98.7을 거꾸로 읽기)<br>
+  <code>0317</code> —— decode.html 검증 (실종일)
+</div>
+<div class="footer">
+  Copyright © YuansuTech. All rights reserved.<br>
+  수완이 이야기 속에서 끝내 하지 못한 말을, 당신이 대신 들었다.
+</div>
+</body>
+</html>

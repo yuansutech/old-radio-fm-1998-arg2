@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Decoding tool</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">decode.html —— Lu Chen's decoding tool</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">Fill in the number fragments you've found. When all are correct, a combined password is unlocked.</p>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">Fragment 1 (letters · premiere date):</label>
+        <input type="text" id="f1" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">Fragment 2 (host · frequency):</label>
+        <input type="text" id="f2" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">Fragment 3 (file · disappearance date):</label>
+        <input type="text" id="f3" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <button class="btn primary" onclick="tryDecode()" style="margin-top:16px;">Try decoding</button>
+      <p id="decode-result" style="margin-top:16px;"></p>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>💡 Hint</strong><br>
+        The three fragments are each 4 digits. When all are correct, the complete password is shown.
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function tryDecode() {
+  const f1 = document.getElementById('f1').value.trim();
+  const f2 = document.getElementById('f2').value.trim();
+  const f3 = document.getElementById('f3').value.trim();
+  const r = document.getElementById('decode-result');
+  if (f1 === '0214' && f2 === '9870' && f3 === '0317') {
+    r.innerHTML = '<span style="color:#7ee0ff;">✅ Decoding successful. Complete password: <strong>0214-9870-0317</strong></span>';
+    saveNote('🔓 Decoding successful: 0214-9870-0317');
+  } else {
+    r.innerHTML = '<span style="color:#ff5f57;">❌ Fragments do not match. Check each number.</span>';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FM 98.7 · 夜航船</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">FM 98.7 · 夜航船 · 読み取り専用メディア</div>
+    </div>
+    <div class="window-body">
+      <p class="cold">ラジオの電源を入れた。チューニングダイヤルが勝手に98.7へ回った。</p>
+      <img src="images/radio.jpg" style="width:100%;border-radius:6px;margin:8px 0 16px;filter:saturate(0.75);" alt="古いラジオ">
+      <p>ノイズの中から、女性の声が流れてきた——<span class="hl">「こちらは夜航船です。お聞きくださり、ありがとうございます。」</span></p>
+      <p class="cold">信号は弱い。聞こえてくるのは、1998年に残されたほんの数片だけだ。</p>
+      <p class="warn">⚠️ チャンネル記録が破損しており、一部のファイルを読み取れません。</p>
+      <div class="file-list" style="margin-top:20px;">
+        <div class="file-item" onclick="location.href='home.html'">
+          <div class="icon">📻</div><div class="name">home.html —— 放送局の紹介</div><div class="size">3.8 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='about.html'">
+          <div class="icon">📄</div><div class="name">about.html —— 陸沈について</div><div class="size">2.4 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='schedule.html'">
+          <div class="icon">📋</div><div class="name">schedule.html —— 番組表</div><div class="size">1.6 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='host.html'">
+          <div class="icon">🎙️</div><div class="name">host.html —— 蘇晩</div><div class="size">2.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='letters.html'">
+          <div class="icon">✉️</div><div class="name">letters.html —— リスナーの手紙</div><div class="size">4.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='broadcast-01.html'">
+          <div class="icon">🎵</div><div class="name">broadcast-01.mp3 —— 第1回</div><div class="size">12.3 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='broadcast-02.html'">
+          <div class="icon">🎵</div><div class="name">broadcast-02.mp3 —— 第47回</div><div class="size">14.7 KB</div>
+        </div>
+        <div class="file-item locked" id="file-b3">
+          <div class="icon">🔒</div><div class="name">broadcast-03.mp3 —— 最終回</div><div class="size">パスワード必要</div>
+        </div>
+        <div class="file-item" onclick="location.href='news.html'">
+          <div class="icon">📰</div><div class="name">news.html —— ニュースアーカイブ</div><div class="size">1.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='missing.html'">
+          <div class="icon">🔍</div><div class="name">missing.html —— 失踪者ファイル</div><div class="size">2.2 KB</div>
+        </div>
+        <div class="file-item" id="file-terminal" onclick="goTerminal()">
+          <div class="icon">🔒</div><div class="name">terminal.html —— ???</div><div class="size">不明</div>
+        </div>
+        <div class="file-item" id="file-decode" onclick="goDecode()">
+          <div class="icon">🔧</div><div class="name">decode.html —— 復号ツール</div><div class="size">開けます</div>
+        </div>
+        <div class="file-item locked" id="file-final">
+          <div class="icon">🔒</div><div class="name">final.html —— 最後の声</div><div class="size">不明</div>
+        </div>
+      </div>
+      <div class="timetower">
+        <strong>📡 チャンネル情報</strong><br>
+        周波数：FM 98.7 · コールサイン：夜航船 · 形式：深夜トーク<br>
+        放送期間：1996-1998 · 毎週木曜 00:00 - 02:00<br>
+        最終放送：1998年3月17日 02:47
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="ファイルを検索…（「手紙」「録音」「ターミナル」）" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;">
+    <button class="btn" onclick="if(confirm('すべての進行状況をリセットしますか？')){resetState();location.reload();}">進行状況をリセット</button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function goTerminal() {
+  const s = getState();
+  if (s.terminalUnlocked) location.href = 'terminal.html';
+  else alert('このファイルは保護されています。先にターミナルのパスワードを見つけてください。');
+}
+function goDecode() {
+  location.href = 'decode.html';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  if (s.b3Unlocked) {
+    const f = document.getElementById('file-b3');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'broadcast-03.html';
+    f.querySelector('.icon').textContent = '🎵';
+    f.querySelector('.size').textContent = '解除済み';
+  } else {
+    document.getElementById('file-b3').onclick = () => {
+      const pwd = prompt('4桁のパスワードを入力：');
+      if (pwd === '0214') {
+        setState({ b3Unlocked: true });
+        saveNote('🔓 最終回を解除、パスワード0214（初回放送日）');
+        location.href = 'broadcast-03.html';
+      } else if (pwd) {
+        alert('パスワードが違います。');
+      }
+    };
+  }
+  if (s.terminalUnlocked) {
+    const f = document.getElementById('file-terminal');
+    f.querySelector('.icon').textContent = '⚡';
+    f.querySelector('.size').textContent = '解除済み';
+  }
+  if (s.finalUnlocked) {
+    const f = document.getElementById('file-final');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'final.html';
+    f.querySelector('.icon').textContent = '🎙️';
+    f.querySelector('.size').textContent = '解除済み';
+  } else {
+    document.getElementById('file-final').onclick = () => {
+      alert('このファイルは保護されています。先にターミナルで解除してください。');
+    };
+  }
+});
+</script>
+</body>
+</html>

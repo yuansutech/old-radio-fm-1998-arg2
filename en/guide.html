@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【Yuansu Tech ARG】Old Radio FM-1998 · Complete walkthrough</title>
+<style>
+  body { background: #fff; font-family: "SF Mono", Consolas, monospace; color: #000;
+    max-width: 760px; margin: 0 auto; padding: 60px 20px; font-size: 15px; line-height: 1.8; }
+  .header { margin-bottom: 20px; font-weight: bold; }
+  .notice { color: #666; margin-bottom: 40px; }
+  .notice span { display: inline-block; width: 90px; }
+  h2 { font-size: 16px; margin-top: 50px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+  .step { margin-bottom: 28px; padding-left: 20px; border-left: 2px solid #eee; }
+  .step-num { display: inline-block; background: #000; color: #fff; font-size: 12px;
+    padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+  .step-title { font-weight: bold; margin-bottom: 6px; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #c00; }
+  .ok { color: #005cc5; font-weight: bold; }
+  .warn { color: #c00; font-weight: bold; }
+  .box { background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+  .footer { color: #999; font-size: 13px; border-top: 1px solid #eee; padding-top: 20px; margin-top: 60px; }
+</style>
+</head>
+<body>
+<div class="header">
+  Yuansu Tech【YUANSUTECH】<br>
+  Old Radio FM-1998<br>
+  Complete walkthrough
+</div>
+<div class="notice">
+  <span>[Publisher]</span> 【Original】YuansuTech<br>
+  <span>[Forbidden]</span> Plagiarism, redistribution 🚫<br>
+  <span>[Recommended]</span> Chrome / Edge
+</div>
+<h2>Phase 1: Getting to know Night Ferry</h2>
+<div class="step">
+  <div class="step-num">1-1</div>
+  <div class="step-title">index.html → home.html</div>
+  <p>You learn the station is called “Night Ferry,” and host Su Wan disappeared on March 17, 1998. Sound engineer Lu Chen saved everything.</p>
+</div>
+<div class="step">
+  <div class="step-num">1-2</div>
+  <div class="step-title">about.html</div>
+  <p>Lu Chen says: <span class="ok">3 number fragments — listener letters, host profile, missing person file.</span></p>
+</div>
+<h2>Phase 2: Collecting the three fragments</h2>
+<div class="step">
+  <div class="step-num">2-1</div>
+  <div class="step-title">letters.html → 0214</div>
+  <p>Premiere date, February 14, 1998 → <code>0214</code>. Use it to unlock broadcast-03.html.</p>
+</div>
+<div class="step">
+  <div class="step-num">2-2</div>
+  <div class="step-title">host.html → 9870</div>
+  <p>Su Wan's interview keeps mentioning the frequency <code>98.7</code>. <b>Read “98.7” backwards</b>, and you get <code>9870</code>. Use it to unlock terminal.html.</p>
+  <p class="warn">Note: This is the trickiest point in the game — the password is not the frequency itself, but the frequency's digits read in reverse.</p>
+</div>
+<div class="step">
+  <div class="step-num">2-3</div>
+  <div class="step-title">missing.html → 0317</div>
+  <p>Date of disappearance, March 17, 1998 → <code>0317</code>. Used for verification in decode.html.</p>
+</div>
+<h2>Phase 3: Unlocking</h2>
+<div class="step">
+  <div class="step-num">3-1</div>
+  <div class="step-title">index.html → broadcast-03.mp3</div>
+  <p>Enter <code>0214</code>. Read Su Wan's final episode, which never aired.</p>
+</div>
+<div class="step">
+  <div class="step-num">3-2</div>
+  <div class="step-title">index.html → terminal.html</div>
+  <p>Enter <code>9870</code>. Enter the terminal.</p>
+</div>
+<div class="step">
+  <div class="step-num">3-3</div>
+  <div class="step-title">In the terminal, type <code>unlock 9870</code></div>
+  <p>✅ Output: <span class="ok">Password correct. final.txt has been decrypted.</span> Unlocks the ending.</p>
+</div>
+<h2>Phase 4: The ending</h2>
+<div class="step">
+  <div class="step-num">4-1</div>
+  <div class="step-title">index.html → final.html</div>
+  <p>Read Su Wan's last voice. Game complete.</p>
+</div>
+<div class="box">
+  <b>🔑 Password summary</b><br>
+  <code>0214</code> —— Unlocks broadcast-03.html (premiere date)<br>
+  <code>9870</code> —— Unlocks terminal.html (frequency 98.7 read backwards)<br>
+  <code>0317</code> —— decode.html verification (disappearance date)
+</div>
+<div class="footer">
+  Copyright © YuansuTech. All rights reserved.<br>
+  The words Su Wan didn't finish in the story — you heard them for her.
+</div>
+</body>
+</html>

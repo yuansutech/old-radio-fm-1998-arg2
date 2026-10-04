@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FM 98.7 · Night Ferry</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">FM 98.7 · Night Ferry · Read-only medium</div>
+    </div>
+    <div class="window-body">
+      <p class="cold">You plug the radio in. The tuning dial turns itself to 98.7.</p>
+      <img src="images/radio.jpg" style="width:100%;border-radius:6px;margin:8px 0 16px;filter:saturate(0.75);" alt="Old radio">
+      <p>Out of the static, a woman's voice comes through——<span class="hl">"This is Night Ferry. Thanks for tuning in."</span></p>
+      <p class="cold">The signal is weak. All you can hear are a few fragments left over from 1998.</p>
+      <p class="warn">⚠️ The channel log is damaged; some files cannot be read.</p>
+      <div class="file-list" style="margin-top:20px;">
+        <div class="file-item" onclick="location.href='home.html'">
+          <div class="icon">📻</div><div class="name">home.html —— Station introduction</div><div class="size">3.8 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='about.html'">
+          <div class="icon">📄</div><div class="name">about.html —— About Lu Chen</div><div class="size">2.4 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='schedule.html'">
+          <div class="icon">📋</div><div class="name">schedule.html —— Program schedule</div><div class="size">1.6 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='host.html'">
+          <div class="icon">🎙️</div><div class="name">host.html —— Su Wan</div><div class="size">2.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='letters.html'">
+          <div class="icon">✉️</div><div class="name">letters.html —— Listener letters</div><div class="size">4.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='broadcast-01.html'">
+          <div class="icon">🎵</div><div class="name">broadcast-01.mp3 —— Episode 1</div><div class="size">12.3 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='broadcast-02.html'">
+          <div class="icon">🎵</div><div class="name">broadcast-02.mp3 —— Episode 47</div><div class="size">14.7 KB</div>
+        </div>
+        <div class="file-item locked" id="file-b3">
+          <div class="icon">🔒</div><div class="name">broadcast-03.mp3 —— Final episode</div><div class="size">Password required</div>
+        </div>
+        <div class="file-item" onclick="location.href='news.html'">
+          <div class="icon">📰</div><div class="name">news.html —— News archive</div><div class="size">1.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='missing.html'">
+          <div class="icon">🔍</div><div class="name">missing.html —— Missing person file</div><div class="size">2.2 KB</div>
+        </div>
+        <div class="file-item" id="file-terminal" onclick="goTerminal()">
+          <div class="icon">🔒</div><div class="name">terminal.html —— ???</div><div class="size">Unknown</div>
+        </div>
+        <div class="file-item" id="file-decode" onclick="goDecode()">
+          <div class="icon">🔧</div><div class="name">decode.html —— Decoding tool</div><div class="size">Open</div>
+        </div>
+        <div class="file-item locked" id="file-final">
+          <div class="icon">🔒</div><div class="name">final.html —— The last voice</div><div class="size">Unknown</div>
+        </div>
+      </div>
+      <div class="timetower">
+        <strong>📡 Channel information</strong><br>
+        Frequency: FM 98.7 · Call sign: Night Ferry · Format: Midnight talk<br>
+        On air: 1996-1998 · Every Thursday 00:00 - 02:00<br>
+        Last broadcast: March 17, 1998, 02:47
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search files… (try “letters”, “recording”, “terminal”)" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;">
+    <button class="btn" onclick="if(confirm('Reset all progress?')){resetState();location.reload();}">Reset progress</button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function goTerminal() {
+  const s = getState();
+  if (s.terminalUnlocked) location.href = 'terminal.html';
+  else alert('This file is protected. Find the terminal password first.');
+}
+function goDecode() {
+  location.href = 'decode.html';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  if (s.b3Unlocked) {
+    const f = document.getElementById('file-b3');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'broadcast-03.html';
+    f.querySelector('.icon').textContent = '🎵';
+    f.querySelector('.size').textContent = 'Unlocked';
+  } else {
+    document.getElementById('file-b3').onclick = () => {
+      const pwd = prompt('Enter the 4-digit password:');
+      if (pwd === '0214') {
+        setState({ b3Unlocked: true });
+        saveNote('🔓 Unlocked the final episode, password 0214 (premiere date)');
+        location.href = 'broadcast-03.html';
+      } else if (pwd) {
+        alert('Wrong password.');
+      }
+    };
+  }
+  if (s.terminalUnlocked) {
+    const f = document.getElementById('file-terminal');
+    f.querySelector('.icon').textContent = '⚡';
+    f.querySelector('.size').textContent = 'Unlocked';
+  }
+  if (s.finalUnlocked) {
+    const f = document.getElementById('file-final');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'final.html';
+    f.querySelector('.icon').textContent = '🎙️';
+    f.querySelector('.size').textContent = 'Unlocked';
+  } else {
+    document.getElementById('file-final').onclick = () => {
+      alert('This file is protected. Unlock it from the terminal first.');
+    };
+  }
+});
+</script>
+</body>
+</html>

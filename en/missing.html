@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Missing person file</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">missing.html —— Qingchuan Public Security Bureau</div>
+    </div>
+    <div class="window-body">
+      <p><strong>Name:</strong> Su Wan</p>
+      <p><strong>Sex:</strong> Female</p>
+      <p><strong>Born:</strong> 1972</p>
+      <p><strong>Date of disappearance:</strong> <span class="hl">March 17, 1998</span></p>
+      <p><strong>Place of disappearance:</strong> Qingchuan Radio Station · Studio</p>
+      <p><strong>Status:</strong> <span class="warn">Not found</span></p>
+      <hr style="border:none;border-top:1px dashed #2e2e33;margin:16px 0;">
+      <p class="dim">On the night of March 17, 1998, Su Wan entered the studio and did not reappear. Colleagues reported her missing the next day.</p>
+      <p class="dim">Police found at the scene: one tape, three listener letters, and a radio.</p>
+      <p class="dim">The tape's final recording runs to 2:47 a.m.; after that there is only static.</p>
+      <p class="dim">Several pages had been torn from the diary in her dorm room.</p>
+      <p class="warn" style="margin-top:12px;">The case remains unsolved to this day.</p>
+      <div class="timetower">
+        <strong>🔑 File number</strong><br>
+        QC1998-0317<br>
+        This number is also: the date of disappearance + the time her final episode was recorded<br>
+        <span class="hl">March 17 → 0317</span>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search…" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('🔑 Missing person file number QC1998-0317, password 0317');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>마지막 목소리</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .audio-bar {
+    display: flex; align-items: center; gap: 12px;
+    background: #14110c; border: 1px solid #2a241c;
+    border-radius: 8px; padding: 12px 18px;
+    margin: 20px 0; font-size: 0.82rem; color: #8a8579;
+  }
+  .audio-bar .icon { font-size: 1.2rem; color: #d9a05c; }
+  .audio-bar .label { flex: 1; letter-spacing: 0.08em; }
+  .audio-bar button {
+    padding: 7px 16px; background: #2a241c;
+    border: 1px solid #4a4038; border-radius: 5px;
+    color: #c8c4bc; font-family: inherit; font-size: 0.8rem; cursor: pointer;
+  }
+  .audio-bar button.playing { border-color: #d9a05c; color: #d9a05c; background: rgba(217,160,92,0.08); }
+</style>
+</head>
+<body>
+<audio id="bgm" src="final-recording.wav" preload="auto"></audio>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">final.html —— 마지막 목소리 · 1998-03-17 02:47</div>
+    </div>
+    <div class="window-body">
+      <div class="audio-bar">
+        <span class="icon">📻</span>
+        <span class="label">테이프 녹음 · 수완의 마지막 목소리</span>
+        <button id="audioBtn" onclick="toggleAudio()">▶ 재생</button>
+      </div>
+      <p class="dim">오디오의 끝부분은 손상된 섹터 깊숙이 묻혀 있었다. 아래는 대본이며 바로 들을 수도 있습니다.</p>
+      <div style="background:#0a0a0a;color:#ffb300;padding:24px;border-radius:6px;font-family:'Courier New',monospace;font-size:0.85rem;line-height:2;margin:20px 0;">
+        <p>[녹음 시작]</p>
+        <p>…내가 정말 하고 싶었던 말은 이거야.</p>
+        <p>후회 없다고 했지만, 사실은 아니야.</p>
+        <p>무서워. 이 테이프가 사라질까 봐, 아무도 듣지 못할까 봐, 마지막에 잡음만 남을까 봐.</p>
+        <p>하지만 정말 잡음만 남게 돼도, 그래도 괜찮아.</p>
+        <p>적어도 누군가 98.7에 주파수를 맞췄으니까.</p>
+        <p>잘 자.</p>
+        <p>[녹음 끝]</p>
+      </div>
+      <img src="images/moon.jpg" style="width:100%;border-radius:6px;margin:20px 0;filter:saturate(0.7) brightness(0.9);" alt="달밤">
+      <div style="text-align:center;padding:20px 0;">
+        <p style="color:#d9a05c;font-size:1rem;letter-spacing:0.15em;">— 끝 —</p>
+        <p class="dim" style="margin-top:8px;">이 주파수에 맞춰 줘서 고마워.</p>
+        <p class="dim" style="margin-top:24px;font-size:0.75rem;">수완 · 1972-1998 · 영원한 야항선 진행자</p>
+        <p class="dim" style="font-size:0.75rem;">육침 · 1975-1998 · 그는 그녀의 목소리를 지켰다</p>
+      </div>
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🕰️ 그 뒤</strong><br>
+        1998년 4월, 야항선은 공식적으로 방송을 멈추었고, 98.7 주파수는 교통 방송으로 바뀌었다.<br>
+        육침은 그 뒤로 다시 모습을 보이지 않았다.<br>
+        당신은 이 주파수에 맞춘 12번째 사람이다.
+      </div>
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn" onclick="if(confirm('모든 진행 상황을 초기화할까요?')){resetState();location.href='index.html';}">처음부터</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('audioBtn');
+  function toggleAudio() {
+    if (bgm.paused) {
+      bgm.play(); btn.textContent = '⏸ 일시정지'; btn.classList.add('playing');
+    } else {
+      bgm.pause(); btn.textContent = '▶ 재생'; btn.classList.remove('playing');
+    }
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    bgm.volume = 0.85;
+    bgm.play().then(() => {
+      btn.textContent = '⏸ 일시정지'; btn.classList.add('playing');
+    }).catch(() => {});
+  });
+</script>
+</body>
+</html>

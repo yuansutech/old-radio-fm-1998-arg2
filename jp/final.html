@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>最後の声</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .audio-bar {
+    display: flex; align-items: center; gap: 12px;
+    background: #14110c; border: 1px solid #2a241c;
+    border-radius: 8px; padding: 12px 18px;
+    margin: 20px 0; font-size: 0.82rem; color: #8a8579;
+  }
+  .audio-bar .icon { font-size: 1.2rem; color: #d9a05c; }
+  .audio-bar .label { flex: 1; letter-spacing: 0.08em; }
+  .audio-bar button {
+    padding: 7px 16px; background: #2a241c;
+    border: 1px solid #4a4038; border-radius: 5px;
+    color: #c8c4bc; font-family: inherit; font-size: 0.8rem; cursor: pointer;
+  }
+  .audio-bar button.playing { border-color: #d9a05c; color: #d9a05c; background: rgba(217,160,92,0.08); }
+</style>
+</head>
+<body>
+<audio id="bgm" src="final-recording.wav" preload="auto"></audio>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">final.html —— 最後の声 · 1998-03-17 02:47</div>
+    </div>
+    <div class="window-body">
+      <div class="audio-bar">
+        <span class="icon">📻</span>
+        <span class="label">テープ録音 · 蘇晩の最後の声</span>
+        <button id="audioBtn" onclick="toggleAudio()">▶ 再生</button>
+      </div>
+      <p class="dim">音声の末尾は破損したセクタの奥に埋もれていた。以下は書き起こしで、直接聞くこともできます。</p>
+      <div style="background:#0a0a0a;color:#ffb300;padding:24px;border-radius:6px;font-family:'Courier New',monospace;font-size:0.85rem;line-height:2;margin:20px 0;">
+        <p>[録音開始]</p>
+        <p>…本当に言いたかったのは、これ。</p>
+        <p>後悔していないって言ったけど、本当は違うの。</p>
+        <p>怖い。このテープがなくなるのが、誰にも聞かれないのが、最後にノイズだけが残るのが。</p>
+        <p>でも本当にノイズだけになっても、それでもいい。</p>
+        <p>少なくとも誰かが98.7に合わせてくれたから。</p>
+        <p>おやすみなさい。</p>
+        <p>[録音終了]</p>
+      </div>
+      <img src="images/moon.jpg" style="width:100%;border-radius:6px;margin:20px 0;filter:saturate(0.7) brightness(0.9);" alt="月夜">
+      <div style="text-align:center;padding:20px 0;">
+        <p style="color:#d9a05c;font-size:1rem;letter-spacing:0.15em;">— 完 —</p>
+        <p class="dim" style="margin-top:8px;">この周波数に合わせてくれてありがとう。</p>
+        <p class="dim" style="margin-top:24px;font-size:0.75rem;">蘇晩 · 1972-1998 · 夜航船永遠のパーソナリティ</p>
+        <p class="dim" style="font-size:0.75rem;">陸沈 · 1975-1998 · 彼は彼女の声を守った</p>
+      </div>
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🕰️ その後</strong><br>
+        1998年4月、夜航船は正式に放送を終え、98.7の周波数は交通放送に変わった。<br>
+        陸沈はその後、再び姿を見せていない。<br>
+        あなたはこの周波数に合わせた12人目の人です。
+      </div>
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn" onclick="if(confirm('すべての進行状況をリセットしますか？')){resetState();location.href='index.html';}">最初から</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('audioBtn');
+  function toggleAudio() {
+    if (bgm.paused) {
+      bgm.play(); btn.textContent = '⏸ 一時停止'; btn.classList.add('playing');
+    } else {
+      bgm.pause(); btn.textContent = '▶ 再生'; btn.classList.remove('playing');
+    }
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    bgm.volume = 0.85;
+    bgm.play().then(() => {
+      btn.textContent = '⏸ 一時停止'; btn.classList.add('playing');
+    }).catch(() => {});
+  });
+</script>
+</body>
+</html>

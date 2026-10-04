@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>실종자 파일</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">missing.html —— 칭촨시 공안국</div>
+    </div>
+    <div class="window-body">
+      <p><strong>이름:</strong> 수완</p>
+      <p><strong>성별:</strong> 여</p>
+      <p><strong>출생:</strong> 1972년</p>
+      <p><strong>실종일:</strong> <span class="hl">1998년 3월 17일</span></p>
+      <p><strong>실종 장소:</strong> 칭촨시 방송국 · 스튜디오</p>
+      <p><strong>상태:</strong> <span class="warn">발견되지 않음</span></p>
+      <hr style="border:none;border-top:1px dashed #2e2e33;margin:16px 0;">
+      <p class="dim">1998년 3월 17일 밤, 수완은 스튜디오에 들어간 뒤 다시 나타나지 않았다. 다음 날 동료가 신고했다.</p>
+      <p class="dim">경찰이 현장에서 발견: 테이프 한 개, 청취자 편지 세 통, 라디오 한 대.</p>
+      <p class="dim">테이프의 마지막 녹음은 새벽 2:47까지이며, 그 뒤는 잡음뿐이다.</p>
+      <p class="dim">기숙사의 일기장에서 일부 페이지가 찢겨 있었다.</p>
+      <p class="warn" style="margin-top:12px;">사건은 지금까지 미해결이다.</p>
+      <div class="timetower">
+        <strong>🔑 파일 번호</strong><br>
+        QC1998-0317<br>
+        이 번호는 또한: 실종일 + 마지막 회를 녹음한 시간<br>
+        <span class="hl">3월 17일 → 0317</span>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('🔑 파일 번호 QC1998-0317, 비밀번호 0317');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【Yuansu Tech arg】《旧收音机 FM-1998》完整通关攻略</title>
+<style>
+  body { background: #fff; font-family: "SF Mono", Consolas, monospace; color: #000;
+    max-width: 760px; margin: 0 auto; padding: 60px 20px; font-size: 15px; line-height: 1.8; }
+  .header { margin-bottom: 20px; font-weight: bold; }
+  .notice { color: #666; margin-bottom: 40px; }
+  .notice span { display: inline-block; width: 90px; }
+  h2 { font-size: 16px; margin-top: 50px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+  .step { margin-bottom: 28px; padding-left: 20px; border-left: 2px solid #eee; }
+  .step-num { display: inline-block; background: #000; color: #fff; font-size: 12px;
+    padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+  .step-title { font-weight: bold; margin-bottom: 6px; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #c00; }
+  .ok { color: #005cc5; font-weight: bold; }
+  .warn { color: #c00; font-weight: bold; }
+  .box { background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+  .footer { color: #999; font-size: 13px; border-top: 1px solid #eee; padding-top: 20px; margin-top: 60px; }
+</style>
+</head>
+<body>
+<div class="header">
+  Yuansu Tech【YUANSUTECH】<br>
+  旧收音机 FM-1998<br>
+  完整通关攻略
+</div>
+<div class="notice">
+  <span>[出品]</span> 【原创】YuansuTech<br>
+  <span>[禁止]</span> 盗用、转载 🚫<br>
+  <span>[建议]</span> Chrome / Edge
+</div>
+<h2>第一阶段：认识夜航船</h2>
+<div class="step">
+  <div class="step-num">1-1</div>
+  <div class="step-title">index.html → home.html</div>
+  <p>读到电台叫「夜航船」，主持人苏晚 1998 年 3 月 17 日失踪。声音工程师陆沉把一切保存下来。</p>
+</div>
+<div class="step">
+  <div class="step-num">1-2</div>
+  <div class="step-title">about.html</div>
+  <p>陆沉说：<span class="ok">3 个数字碎片——听众来信、主持人资料、失踪档案。</span></p>
+</div>
+<h2>第二阶段：收集三个碎片</h2>
+<div class="step">
+  <div class="step-num">2-1</div>
+  <div class="step-title">letters.html → 0214</div>
+  <p>首播日 1998 年 2 月 14 日 → <code>0214</code>。用它解锁 broadcast-03.html。</p>
+</div>
+<div class="step">
+  <div class="step-num">2-2</div>
+  <div class="step-title">host.html → 9870</div>
+  <p>苏晚采访里反复提到频率 <code>98.7</code>。<b>把「98.7」倒过来念</b>，就是 <code>9870</code>。用它解锁 terminal.html。</p>
+  <p class="warn">注意：这是本作最阴的一个点——密码不是频率本身，而是把频率数字倒着读。</p>
+</div>
+<div class="step">
+  <div class="step-num">2-3</div>
+  <div class="step-title">missing.html → 0317</div>
+  <p>失踪日期 1998 年 3 月 17 日 → <code>0317</code>。用于 decode.html 验证。</p>
+</div>
+<h2>第三阶段：解锁</h2>
+<div class="step">
+  <div class="step-num">3-1</div>
+  <div class="step-title">index.html → broadcast-03.mp3</div>
+  <p>输入 <code>0214</code>。读到苏晚最后一期录音，未播出。</p>
+</div>
+<div class="step">
+  <div class="step-num">3-2</div>
+  <div class="step-title">index.html → terminal.html</div>
+  <p>输入 <code>9870</code>。进入终端。</p>
+</div>
+<div class="step">
+  <div class="step-num">3-3</div>
+  <div class="step-title">终端里输入 <code>unlock 9870</code></div>
+  <p>✅ 输出 <span class="ok">密码正确。final.txt 已解密。</span>解锁结局。</p>
+</div>
+<h2>第四阶段：结局</h2>
+<div class="step">
+  <div class="step-num">4-1</div>
+  <div class="step-title">index.html → final.html</div>
+  <p>读到苏晚最后的声音。通关。</p>
+</div>
+<div class="box">
+  <b>🔑 密码汇总</b><br>
+  <code>0214</code> —— 解锁 broadcast-03.html（首播日）<br>
+  <code>9870</code> —— 解锁 terminal.html（频率 98.7 倒过来念）<br>
+  <code>0317</code> —— decode.html 验证（失踪日）
+</div>
+<div class="footer">
+  Copyright © YuansuTech. All rights reserved.<br>
+  苏晚在故事里没说完的话，你替她听到了。
+</div>
+</body>
+</html>

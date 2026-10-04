@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>청취자 편지</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">letters.html —— 청취자 편지</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">수완은 프로그램에서 많은 편지를 읽었다. 아래는 되찾을 수 있었던 몇 통이다.</p>
+      <img src="images/letter.jpg" style="width:100%;border-radius:6px;margin:16px 0;filter:saturate(0.7) sepia(0.2);" alt="편지지">
+      <div style="background:#14110c;border-left:3px solid #d9a05c;padding:14px 18px;margin:16px 0;font-size:0.85rem;line-height:1.85;">
+        <p style="color:#d9a05c;font-size:0.8rem;">1번째 편지 · 1998-02-14 02:14</p>
+        <p>“수완 씨 안녕하세요. 오늘 처음으로 당신 프로그램을 들었어요. 병원에서 야간 근무 중인데 병동이 아주 조용해요. ‘새벽 두 시의 사람들은 낮보다 자기 자신에 더 가깝다’는 말, 기억할게요.”</p>
+        <p class="dim">수완은 이 편지를 프로그램에서 읽었다. 그녀가 말했다:<br>
+        “<span class="hl">2월 14일</span>, 밸런타인데이. 오늘은 야항선의 첫 방송이기도 해. 이 날짜를 적어뒀어. 0214.”</p>
+      </div>
+      <div style="background:#14110c;border-left:3px solid #d9a05c;padding:14px 18px;margin:16px 0;font-size:0.85rem;line-height:1.85;">
+        <p style="color:#d9a05c;font-size:0.8rem;">2번째 편지 · 1998-03-10 02:30</p>
+        <p>“수완 씨, 나는 다음 주 칭촨을 떠나요. 2년 동안 함께해 줘서 고마워요. 내가 돌아올 때 당신이 여전히 여기 있으면 좋겠어요.”</p>
+        <p class="dim">수완은 다 읽고 한참 멈추더니 한마디 했다: “나도 그랬으면 좋겠다.”</p>
+      </div>
+      <div style="background:#14110c;border-left:3px solid #c98a4b;padding:14px 18px;margin:16px 0;font-size:0.85rem;line-height:1.85;">
+        <p style="color:#c98a4b;font-size:0.8rem;">3번째 편지 · 1998-03-18 03:00 (방송되지 않음)</p>
+        <p>“안녕하세요. 스튜디오 앞을 지나는데 문이 잠겨 있었어요. 아직 안에 계신가요?”</p>
+        <p class="dim">편지는 부치지 못했다. 봉투의 소인은 1998년 3월 18일이다.</p>
+      </div>
+      <div class="timetower">
+        <strong>🔑 핵심 정보</strong><br>
+        첫 방송일: <span class="hl">1998년 2월 14일 → 0214</span><br>
+        수완은 이 날짜를 세 번 말했다.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('📮 첫 방송일: 1998-02-14 → 비밀번호 0214');
+});
+</script>
+</body>
+</html>
