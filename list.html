@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【Yuansu Tech】旧收音机 FM-1998 · 作品介绍</title>
+<style>
+  body { background: #fff; font-family: "SF Mono", Consolas, monospace; color: #000;
+    max-width: 760px; margin: 0 auto; padding: 60px 20px; font-size: 15px; line-height: 1.8; }
+  .header { margin-bottom: 20px; font-weight: bold; }
+  .notice { color: #666; margin-bottom: 40px; }
+  .notice span { display: inline-block; width: 90px; }
+  .hero { text-align: center; padding: 30px 0 40px; border-bottom: 1px solid #eee; margin-bottom: 40px; }
+  .hero .tagline { color: #666; font-size: 14px; margin-top: 8px; }
+  .hero .meta { color: #999; font-size: 13px; margin-top: 16px; line-height: 2; }
+  .hero .meta b { color: #333; }
+  .consent-area { margin-top: 22px; text-align: center; }
+  .consent-label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px;
+    color: #333; cursor: pointer; padding: 8px 14px; border-radius: 4px; }
+  .consent-label:hover { background: #f5f5f5; }
+  .consent-label input { width: 16px; height: 16px; cursor: pointer; }
+  .consent-label .link { color: #005cc5; text-decoration: underline; cursor: pointer; }
+  .cta { display: inline-block; margin-top: 16px; padding: 10px 24px; background: #000;
+    color: #fff; text-decoration: none; border-radius: 4px; font-size: 14px; letter-spacing: 0.1em; }
+  .cta.disabled { background: #ccc; color: #888; pointer-events: none; }
+  h2 { font-size: 16px; margin-top: 50px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #c00; }
+  .box { background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+  th, td { border: 1px solid #eee; padding: 8px 12px; text-align: left; }
+  th { background: #fafafa; }
+  .footer { color: #999; font-size: 13px; border-top: 1px solid #eee; padding-top: 20px; margin-top: 60px; }
+  /* 弹窗 */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+  .modal-overlay.show { display: flex; }
+  .modal { background: #fff; border-radius: 8px; max-width: 520px; width: 100%;
+    max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .modal-header { padding: 16px 24px; background: #000; color: #fff; font-size: 15px;
+    font-weight: bold; border-radius: 8px 8px 0 0; }
+  .modal-body { padding: 22px 24px; font-size: 13px; color: #333; line-height: 1.75; }
+  .modal-warn { background: #fff5f5; border-left: 3px solid #c00; padding: 14px 16px;
+    color: #c00; font-size: 13px; line-height: 1.8; margin-bottom: 22px; }
+  .pwd-row { margin-bottom: 16px; }
+  .pwd-row .label-line { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px; gap: 10px; }
+  .pwd-row label { font-size: 12px; color: #555; }
+  .pwd-row .hint { font-size: 11px; color: #888; background: #f5f5f5; padding: 2px 8px;
+    border-radius: 3px; cursor: copy; border: 1px dashed #ddd; }
+  .pwd-row .hint:hover { background: #fff8e0; border-color: #c98a4b; color: #c00; }
+  .pwd-row .hint::before { content: "🔑 "; opacity: 0.6; }
+  .pwd-row input { width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 4px;
+    font-family: inherit; font-size: 13px; outline: none; }
+  .pwd-row input.ok { border-color: #0a0; background: #f0fff4; }
+  .pwd-row input.err { border-color: #c00; background: #fff5f5; }
+  .pwd-msg { margin-top: 12px; font-size: 12px; min-height: 18px; color: #c00; }
+  .pwd-msg.ok { color: #0a0; }
+  .modal-footer { padding: 16px 24px 22px; display: flex; gap: 10px; justify-content: flex-end; }
+  .modal-btn { padding: 10px 22px; border-radius: 4px; font-family: inherit; font-size: 13px;
+    cursor: pointer; border: 1px solid #ddd; background: #fff; }
+  .modal-btn.confirm { background: #000; color: #fff; border-color: #000; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="header">Yuansu Tech【YUANSUTECH】</div>
+  <h1 style="font-size:22px;margin:12px 0 6px;">旧收音机 FM-1998</h1>
+  <p class="tagline">Old Radio FM-1998 · 一个网页解谜游戏</p>
+  <div class="meta">
+    类型：<b>网页解谜（arg）</b> / 叙事探索 / 模拟收音机<br>
+    语言：<b>中文 · English · 한국어 · 日本語</b><br>
+    出品：<b>YuansuTech</b>
+  </div>
+  <div class="consent-area">
+    <label class="consent-label" for="agreeCheck">
+      <input type="checkbox" id="agreeCheck">
+      <span>我已认真阅读并同意
+        <span class="link" onclick="openDoc(event, 'user')">《Yuansu用户协议》</span>和
+        <span class="link" onclick="openDoc(event, 'copyright')">《Yuansu版权纠纷》</span>
+      </span>
+    </label>
+  </div>
+  <a class="cta disabled" id="startBtn" href="./index.html">打开收音机 →</a>
+</div>
+<div class="notice">
+  <span>[出品]</span> 【原创】YuansuTech<br>
+  <span>[禁止]</span> 盗用、转载 🚫<br>
+  <span>[联系]</span> yuansu_zhouqibiao@163.com<br>
+  <span>[建议]</span> Chrome / Edge / Firefox
+</div>
+<h2>一、这是什么</h2>
+<p>《旧收音机 FM-1998》是一个纯网页的解谜游戏。你在旧货市场淘到一台收音机，打开后它自动锁定 FM 98.7，一个 1998 年停播的午夜电台。你要从录音、来信、档案里拼出主持人苏晚失踪的真相。</p>
+<h2>二、怎么玩</h2>
+<table>
+  <tr><th>操作</th><th>说明</th></tr>
+  <tr><td><b>调频</b></td><td>点击频段，收听对应节目</td></tr>
+  <tr><td><b>搜索</b></td><td>搜索关键词，跳到对应文件</td></tr>
+  <tr><td><b>输入密码</b></td><td>在锁住的录音里输入四位数字</td></tr>
+</table>
+<h2>三、游戏机制</h2>
+<div class="box">
+  <b>📻 收音机</b><br>首页是收音机面板，频道表对应不同文件。<br><br>
+  <b>🔑 三个密码碎片</b><br>在<b>听众来信</b>、<b>节目录音</b>、<b>失踪档案</b>里各藏一个四位数字。<br><br>
+  <b>📓 笔记本</b><br>右下角 📓 自动记录线索。<br><br>
+  <b>💻 终端</b><br>解锁后用 <code>unlock [pwd]</code> 打开最后的录音。
+</div>
+<h2>四、关键密码</h2>
+<div class="box">
+  <code>0214</code> —— 首播日 · 解锁最后一段录音（在 <code>letters.html</code>）<br>
+  <code>9870</code> —— 频率 · 解锁 <code>terminal.html</code>（在 <code>host.html</code>）<br>
+  <code>0317</code> —— 失踪日 · 用于 <code>decode.html</code> 验证
+</div>
+<h2>五、目录结构</h2>
+<div class="box">
+  <code>index.html</code> 收音机入口<br>
+  <code>home.html</code> 电台简介<br>
+  <code>about.html</code> 关于陆沉<br>
+  <code>schedule.html</code> 节目表<br>
+  <code>host.html</code> 苏晚介绍<br>
+  <code>letters.html</code> 听众来信（藏 0214）<br>
+  <code>broadcast-01.html</code> 录音一<br>
+  <code>broadcast-02.html</code> 录音二<br>
+  <code>broadcast-03.html</code> 最后一期（需 0214）<br>
+  <code>news.html</code> 新闻<br>
+  <code>missing.html</code> 失踪档案（藏 0317）<br>
+  <code>terminal.html</code> 终端（需 9870）<br>
+  <code>decode.html</code> 解码器<br>
+  <code>final.html</code> 最后录音<br>
+  <code>guide.html</code> 完整攻略
+</div>
+<div class="footer">
+  Copyright © YuansuTech. All rights reserved.<br>
+  提示：YuansuTech 是一个独立团队，只有一个人。
+</div>
+<!-- 密码弹窗 -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">⚠️ 游玩前须知</div>
+    <div class="modal-body">
+      <div class="modal-warn">
+        如果剧情让你感到难受，请立刻退出，后果作者不承担。<br>
+        如果您确保认真阅读了《Yuansu用户协议》和《Yuansu版权纠纷》，与您自己想要玩，作者一律不负责。
+      </div>
+      <p style="color:#666;margin-bottom:16px;">请在下面的输入框内输入三层密码。<b>点击右边的 🔑 提示</b>自动填入。</p>
+      <div class="pwd-row">
+        <div class="label-line"><label>第一层</label>
+          <span class="hint" onclick="fillPwd('pwd1','yuansu_nb_666')">yuansu_nb_666</span></div>
+        <input type="text" id="pwd1" placeholder="请输入第一层密码" autocomplete="off">
+      </div>
+      <div class="pwd-row">
+        <div class="label-line"><label>第二层</label>
+          <span class="hint" onclick="fillPwd('pwd2','best_writer_yuansu')">best_writer_yuansu</span></div>
+        <input type="text" id="pwd2" placeholder="请输入第二层密码" autocomplete="off">
+      </div>
+      <div class="pwd-row">
+        <div class="label-line"><label>第三层</label>
+          <span class="hint" onclick="fillPwd('pwd3','yuansu_tech_good')">yuansu_tech_good</span></div>
+        <input type="text" id="pwd3" placeholder="请输入第三层密码" autocomplete="off">
+      </div>
+      <div class="pwd-msg" id="pwdMsg"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn" onclick="closeModal()">取消</button>
+      <button class="modal-btn confirm" onclick="checkPasswords()">确认</button>
+    </div>
+  </div>
+</div>
+<!-- 协议弹窗 -->
+<div class="modal-overlay" id="docOverlay">
+  <div class="modal">
+    <div class="modal-header" id="docTitle">文档</div>
+    <div class="modal-body"><div id="docContent" style="font-size:12px;line-height:1.9;color:#555;"></div></div>
+    <div class="modal-footer"><button class="modal-btn confirm" onclick="closeDoc()">关闭</button></div>
+  </div>
+</div>
+<script>
+  const CORRECT = {
+    pwd1: 'yuansu_nb_666',
+    pwd2: 'best_writer_yuansu',
+    pwd3: 'yuansu_tech_good'
+  };
+  const DOCS = {
+    user: { title: '《Yuansu用户协议》',
+      content: '1. 本作品为 YuansuTech 独立开发的虚构网页解谜游戏（arg）。<br>2. 所有人物、机构、事件、地名均为剧情创作。<br>3. 可自由游玩、分享链接，不得商用。<br>4. 禁止盗用、转载、二次分发。<br>5. 进度保存在浏览器本地。<br>6. 如剧情引起不适，请立即退出。' },
+    copyright: { title: '《Yuansu版权纠纷》',
+      content: '1. 《旧收音机 FM-1998》版权归 YuansuTech 所有。<br>2. 如需引用、改编、视频解说，请联系作者。<br>3. 未经授权禁止商用。<br>4. 盗用行为保留追责权利。' }
+  };
+  const checkbox = document.getElementById('agreeCheck');
+  const startBtn = document.getElementById('startBtn');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const docOverlay = document.getElementById('docOverlay');
+  const pwdMsg = document.getElementById('pwdMsg');
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) openModal();
+    else startBtn.classList.add('disabled');
+  });
+  function openModal() {
+    pwdMsg.textContent = ''; pwdMsg.classList.remove('ok');
+    ['pwd1','pwd2','pwd3'].forEach(id => {
+      const el = document.getElementById(id);
+      el.value = ''; el.classList.remove('ok','err');
+    });
+    modalOverlay.classList.add('show');
+    setTimeout(() => document.getElementById('pwd1').focus(), 100);
+  }
+  function closeModal() {
+    modalOverlay.classList.remove('show');
+    checkbox.checked = false;
+    startBtn.classList.add('disabled');
+  }
+  function fillPwd(id, val) {
+    const el = document.getElementById(id);
+    el.value = val; el.classList.remove('err'); el.classList.add('ok');
+    const order = ['pwd1','pwd2','pwd3'];
+    const idx = order.indexOf(id);
+    if (idx < order.length - 1) setTimeout(() => document.getElementById(order[idx+1]).focus(), 80);
+  }
+  function checkPasswords() {
+    const v1 = document.getElementById('pwd1').value.trim();
+    const v2 = document.getElementById('pwd2').value.trim();
+    const v3 = document.getElementById('pwd3').value.trim();
+    const e1 = document.getElementById('pwd1'), e2 = document.getElementById('pwd2'), e3 = document.getElementById('pwd3');
+    e1.classList.remove('ok','err'); e2.classList.remove('ok','err'); e3.classList.remove('ok','err');
+    if (v1 === CORRECT.pwd1) e1.classList.add('ok'); else e1.classList.add('err');
+    if (v2 === CORRECT.pwd2) e2.classList.add('ok'); else e2.classList.add('err');
+    if (v3 === CORRECT.pwd3) e3.classList.add('ok'); else e3.classList.add('err');
+    if (v1 === CORRECT.pwd1 && v2 === CORRECT.pwd2 && v3 === CORRECT.pwd3) {
+      pwdMsg.textContent = '✅ 三层密码全部正确。已解锁，可以开始调查。';
+      pwdMsg.classList.add('ok');
+      startBtn.classList.remove('disabled');
+      setTimeout(() => modalOverlay.classList.remove('show'), 800);
+    } else {
+      pwdMsg.textContent = '❌ 密码有误，请检查后重新输入。';
+      pwdMsg.classList.remove('ok');
+    }
+  }
+  ['pwd1','pwd2','pwd3'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') checkPasswords(); });
+  });
+  function openDoc(e, key) {
+    e.preventDefault(); e.stopPropagation();
+    const d = DOCS[key];
+    document.getElementById('docTitle').textContent = d.title;
+    document.getElementById('docContent').innerHTML = d.content;
+    docOverlay.classList.add('show');
+  }
+  function closeDoc() { docOverlay.classList.remove('show'); }
+  modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+  docOverlay.addEventListener('click', e => { if (e.target === docOverlay) closeDoc(); });
+</script>
+</body>
+</html>
